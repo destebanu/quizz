@@ -1,0 +1,50 @@
+<!DOCTYPE  html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+	<head>
+  		<meta charset="UTF-8">
+  		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  		<title>Quizz</title>
+  		<style type="text/css">
+  			li {padding: 1em;}
+  			legend {background-color: white; border: 1px solid #0099ff;}
+  			legend::first-letter { font-size: 26px; font-weight: bold;}
+  			fieldset {border: 1.5px solid #0099ff; border-radius:25px; background-color:#fff2e6; margin: 1em;}
+  			figcaption {text-align:justify;}
+  		</style>
+  		
+	</head>
+	<body>
+		
+		<form th:action="@{/persistMessage}" method="post">
+			<fieldset>
+				<legend>Pregunta 1:</legend>
+						<figure>
+							<img th:src="@{/pics/taberna.jpg}"/>
+							<figcaption class="text-primary">Te encuentras en una taberna en la que has parado para descansar. En su interior encuentras gente de todo tipo
+							ahogando sus penas y festejando las de los demás. Tras unas jarras de cerveza de más te topas con un maleante dispuesto a partirte la cara
+							por derramar su bebida al pasar. Tus opciones:
+							</figcaption>
+						</figure>
+						<ul style="list-style-type:none">
+						  	<li><input type="radio" name="respuesta" value="barbarian">
+						  	<label>¡A mí nadie se me enfrenta, agarro una jarra y se la reviento en la cara!</label>
+						  	</li>						  	
+						  	<li><input type="radio" name="respuesta" value="wizard">
+						  	<label>Nadie puede hacer frente a mi arsenal de conjuros cuando me pongo serio, si se enciende se las verá con mi bola de fuego.</label>
+						  	</li>						  	
+						  	<li><input type="radio" name="respuesta" value="bard">
+						  	<label>No pasa nada, le invito a una nueva bebida y nos subimos juntos sobre una mesa a cantar como buenos hermanos de la ebriedad.
+						  	¡Que corra el vino!</label>
+						  	</li>						  	
+						  	<li><input type="radio" name="respuesta" value="cleric">
+						  	<label>Rehuyo la violencia, trato de disculparme invocando la palabra de nuestro señor Irori.</label>
+						  	</li>				  
+						</ul>
+						
+						<p class="text-primary">Funciona leeñee</p>
+					
+				</fieldset>
+			<button type="submit" class="btn btn-primary">Siguiente</button>
+		</form>
+	</body>
+</html>
