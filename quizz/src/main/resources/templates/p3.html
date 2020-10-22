@@ -1,0 +1,54 @@
+<!DOCTYPE  html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+	<head>
+  		<meta charset="UTF-8">
+  		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  		<title>Quizz</title>
+  		<style type="text/css">
+  			li {padding: 1em;}
+  			legend {background-color: white; border: 1px solid #0099ff;}
+  			legend::first-letter { font-size: 26px; font-weight: bold;}
+  			fieldset {border: 1.5px solid #0099ff; border-radius:25px; background-color:#fff2e6; margin: 1em;}
+  			figcaption {text-align:justify;}
+  		</style>
+  		
+	</head>
+	<body>
+		
+		<form th:action="@{/persistMessage}" method="post">
+			<fieldset>
+				<legend>Pregunta 3:</legend>
+						<figure>
+							<img th:src="@{/pics/taberna.jpg}"/>
+							<figcaption class="text-primary">Durante tu fructífero paseo te pilla desprevenido una tormenta como pocas se hayan visto, de estas que evocan truenos sobre los árboles y tiene pinta
+							que también sobre ti a menos que busques refugio o hagas algo al respecto. Tus opciones:
+							</figcaption>
+						</figure>
+						<ul style="list-style-type:none">
+						  	<li>
+						  	<label>¡No me da miedo un poco de llovizna! Correré con determinación y nada me detendrá.</label>
+						  	<br/>
+						  	<button type="button" class="btn btn-secondary" value="barbarian">Corre Forrest</button>
+						  	</li>						  	
+						  	<li>
+						  	<label>Para un ser de mi intelecto y capacidades esto no supone una preocupación. Levanto una barrera protectora y listos.</label>
+						  	<br/>
+						  	<button type="button" class="btn btn-secondary" value="wizard">¡Bibbidi-Bobbidi-Boo!</button>
+						  	</li>						  	
+						  	<li>
+						  	<label>Uuh...qué mala pinta tiene esto. ¿No acabo de pasar cerca de una taberna? Creo que voy a echar el resto del día ahí.</label>
+						  	<br/>
+						  	<button type="button" class="btn btn-secondary" value="bard">Darse a la bebida</button>
+						  	</li>						  	
+						  	<li>
+						  	<label>Me pongo a rodillas a entonar mis cánticos y rezos en pos de protección y despejar los cielos.</label>
+						  	<br/>
+						  	<button type="button" class="btn btn-secondary" value="cleric">Say a little prayer</button>
+						  	</li>				  
+						</ul>
+									
+				</fieldset>
+			<button type="submit" class="btn btn-primary">Siguiente</button>
+		</form>
+	</body>
+</html>

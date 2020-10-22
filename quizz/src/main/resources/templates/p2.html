@@ -17,27 +17,25 @@
 		
 		<form th:action="@{/persistMessage}" method="post">
 			<fieldset>
-				<legend>Pregunta 1:</legend>
+				<legend>Pregunta 2:</legend>
 						<figure>
-							<img th:src="@{/pics/taberna.jpg}"/>
-							<figcaption class="text-primary">Te encuentras en una taberna en la que has parado para descansar. En su interior encuentras gente de todo tipo
-							ahogando sus penas y festejando las de los demás. Tras unas jarras de cerveza de más te topas con un maleante dispuesto a partirte la cara
-							por derramar su bebida al pasar. Tus opciones:
+							<img th:src="@{/pics/forest.png}"/>
+							<figcaption class="text-primary">Vas paseando por el bosque cuando encuentras un rastro de sangre y señales de una refriega. Parece que pasó hace
+							unas horas pero decides seguir el rastro para encontrar un ciervo malherido y con pocas esperanzas de vivir junto a un claro. Tus opciones:
 							</figcaption>
 						</figure>
 						<ul style="list-style-type:none">
 						  	<li><input type="radio" name="respuesta" value="barbarian" required="required">
-						  	<label>¡A mí nadie se me enfrenta, agarro una jarra y se la reviento en la cara!</label>
+						  	<label>Esta criatura ha vivido una vida noble, lo mejor será que termine con su sufrimiento con un golpe limpio de mi hacha.</label>
 						  	</li>						  	
 						  	<li><input type="radio" name="respuesta" value="wizard" required="required">
-						  	<label>Nadie puede hacer frente a mi arsenal de conjuros cuando me pongo serio, si se enciende se las verá con mi bola de fuego.</label>
+						  	<label>No hay mucho que pueda hacer al respecto, pero igual me sirve alguno de sus miembros para preparar nuevos brebajes y hechizos tras rematarlo con una bola de fuego.</label>
 						  	</li>						  	
 						  	<li><input type="radio" name="respuesta" value="bard" required="required">
-						  	<label>No pasa nada, le invito a una nueva bebida y nos subimos juntos sobre una mesa a cantar como buenos hermanos de la ebriedad.
-						  	¡Que corra el vino!</label>
+						  	<label>Nada ni nadie merece terminar así sus últimos momentos. Me apoyo en un árbol cercano y entono una solemne canción con la intención de amenizar su dolor y rendirle homenaje.</label>
 						  	</li>						  	
 						  	<li><input type="radio" name="respuesta" value="cleric" required="required">
-						  	<label>Rehuyo la violencia, trato de disculparme invocando la palabra de nuestro señor Irori.</label>
+						  	<label>Por suerte poseo los dones de la sanación necesarios para salvar su vida a tiempo. ¡Hoy no es tu final Bambi!</label>
 						  	</li>				  
 						</ul>
 									

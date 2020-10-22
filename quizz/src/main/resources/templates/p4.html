@@ -1,0 +1,42 @@
+<!DOCTYPE  html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+	<head>
+  		<meta charset="UTF-8">
+  		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  		<title>Quizz</title>
+  		<style type="text/css">
+  			li {padding: 1em;}
+  			legend {background-color: white; border: 1px solid #0099ff;}
+  			legend::first-letter { font-size: 26px; font-weight: bold;}
+  			fieldset {border: 1.5px solid #0099ff; border-radius:25px; background-color:#fff2e6; margin: 1em;}
+  			figcaption {text-align:justify;}
+  			
+  		</style>
+  		
+	</head>
+	<body>
+		
+		<form th:action="@{/persistMessage}" method="post">
+			<fieldset>
+				<legend>Pregunta 4:</legend>
+						<figure>
+							<img th:src="@{/pics/taberna.jpg}"/>
+							<figcaption class="text-primary">Estás explorando unas antiguas ruinas en las que has acabado después de perder una apuesta, cuando te encuentras un hombrecillo
+							que te cierra el paso. <span>"Aventurero, te encuentras ante el guardián del templo del Enchiridión. Si deseas continuar, el siguiente acertijo deberás acertar:"</span>
+							
+							<p>"Ambrosius lucía siempre unos zapatos prácticos. Es cierto que no destacaban por su belleza, pero se ajustaban bien y eran resistentes del tal modo que casi nunca notaba que los llevaba puestos.</p>
+
+<p>En realidad, jamás se los quitaba (ni para dormir por la noche), hasta que literalmente no cabía en ellos. Y aun así, su siguiente par siempre se asemejaba al anterior. Aunque, para ser sinceros, Ambrosius no les dedicaba muchos pensamientos".</p>
+							¿Cuál es tu respuesta?:
+							</figcaption>
+						</figure>
+						<br/>
+						<!-- Decidir la validez de respuesta al acertijo en base a conteo de palabras concretas. 0 coincidencias = barbarian -->
+						<!-- Respuesta: Ambrosius es un caballo. -->
+						<textarea name="respuesta" rows="15" cols="100" placeholder="Escribe tu respuesta"></textarea>
+								
+				</fieldset>
+			<button type="submit" class="btn btn-primary">Siguiente</button>
+		</form>
+	</body>
+</html>
