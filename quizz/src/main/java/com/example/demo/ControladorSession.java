@@ -17,7 +17,7 @@ public class ControladorSession {
 
 	
 	@GetMapping("/start")
-	public String process(Model model, HttpSession session) {
+	public String start(Model model, HttpSession session) {
 		@SuppressWarnings("unchecked")
 		List<String> messages = (List<String>) session.getAttribute("MY_SESSION_MESSAGES");
 
@@ -28,18 +28,19 @@ public class ControladorSession {
 
 		return "start";
 	}
-
+	
+	
 	@PostMapping("/persistMessage")
-	public String persistMessage(@RequestParam("name") String name, HttpServletRequest request) {
+	public String start(@RequestParam("msg") String msg, HttpServletRequest request) {
 		@SuppressWarnings("unchecked")
 		List<String> messages = (List<String>) request.getSession().getAttribute("MY_SESSION_MESSAGES");
 		if (messages == null) {
 			messages = new ArrayList<>();
 			request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
 		}
-		messages.add(name);
+		messages.add(msg);
 		request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
-		return "redirect:/start";
+		return "redirect:/p1";
 	}
 
 	@PostMapping("/destroy")
@@ -47,5 +48,35 @@ public class ControladorSession {
 		request.getSession().invalidate();
 		return "redirect:/start";
 	}
+	
+	@GetMapping("/p1")
+	public String p1(Model model, HttpSession session) {
+		@SuppressWarnings("unchecked")
+		List<String> messages = (List<String>) session.getAttribute("MY_SESSION_MESSAGES");
+
+		if (messages == null) {
+			messages = new ArrayList<>();
+		}
+		model.addAttribute("sessionMessages", messages);
+
+		return "p1";
+	}
+	
+	/*
+	@PostMapping("/persistMessage")
+	public String p1(@RequestParam("msg") String msg, HttpServletRequest request) {
+		@SuppressWarnings("unchecked")
+		List<String> messages = (List<String>) request.getSession().getAttribute("MY_SESSION_MESSAGES");
+		if (messages == null) {
+			messages = new ArrayList<>();
+			request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
+		}
+		messages.add(msg);
+		request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
+		return "redirect:/p1";
+	}
+		
+	*/
+	
 	
 }
