@@ -9,7 +9,13 @@
   			legend {background-color: white; border: 1px solid #0099ff;}
   			legend::first-letter { font-size: 26px; font-weight: bold;}
   			fieldset {border: 1.5px solid #0099ff; border-radius:25px; background-color:#fff2e6; margin: 1em;}
-  			figcaption {text-align:justify;}
+  			figcaption {text-align:justify; margin : 1em;}
+  			img {
+			  display: block;
+			  margin : 1em auto 1em auto;
+			  border: 3px solid gray;
+			  width: 45%;}
+			  #nombre {margin: 2em; }
   		</style>
   		
 	</head>
@@ -24,8 +30,8 @@
 							tu nombre a continuación y veremos qué tipo de personaje se adecúa más a tus decisiones:
 							</figcaption>
 						</figure>
-						<br/>
-						<textarea name="name" rows="5" cols="50" placeholder="Escribe tu nombre"></textarea>
+						
+						<textarea id=nombre name="name" rows="2" cols="50" placeholder="Escribe tu nombre"></textarea>
 									
 				</fieldset>
 			<button type="submit" class="btn btn-primary">Comenzar</button>
