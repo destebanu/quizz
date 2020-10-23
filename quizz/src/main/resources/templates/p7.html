@@ -19,30 +19,29 @@
 			<fieldset>
 				<legend>Pregunta 7:</legend>
 						<figure>
-							<img th:src="@{/pics/taberna.jpg}"/>
-							<figcaption class="text-primary">Te encuentras en una taberna en la que has parado para descansar. En su interior encuentras gente de todo tipo
-							ahogando sus penas y festejando las de los demás. Tras unas jarras de cerveza de más te topas con un maleante dispuesto a partirte la cara
-							por derramar su bebida al pasar. Tus opciones:
+							<img th:src="@{/pics/kobolds.jpg}"/>
+							<figcaption class="text-primary">Parece que esta aventura toca a su fin. Cansado tras una larga jornada te acercas al pueblo más cercano cuando ves por el rabillo del ojo
+							un grupo de kobolds correteando con malas intenciones. Percibes que van dejando caer un rastro de objetos presuntamente robados a medida que
+							se alejan, probablemente de los aldeanos. Tus opciones:
 							</figcaption>
 						</figure>
 						<ul style="list-style-type:none">
 						  	<li><input type="radio" name="respuesta" value="barbarian" required="required">
-						  	<label>¡A mí nadie se me enfrenta, agarro una jarra y se la reviento en la cara!</label>
+						  	<label>Agarro mi arma y les corto el paso. No se van a salir con la suya sin pelear.</label>
 						  	</li>						  	
 						  	<li><input type="radio" name="respuesta" value="wizard" required="required">
-						  	<label>Nadie puede hacer frente a mi arsenal de conjuros cuando me pongo serio, si se enciende se las verá con mi bola de fuego.</label>
+						  	<label>A veces la respuesta más simple es la más correcta. ¡BOLA DE FUEGO!</label>
 						  	</li>						  	
 						  	<li><input type="radio" name="respuesta" value="bard" required="required">
-						  	<label>No pasa nada, le invito a una nueva bebida y nos subimos juntos sobre una mesa a cantar como buenos hermanos de la ebriedad.
-						  	¡Que corra el vino!</label>
+						  	<label>Saco mi confiable flauta y me aproximo a ellos tocando una melodía para hipnotizarles y alejarles del pueblo.</label>
 						  	</li>						  	
 						  	<li><input type="radio" name="respuesta" value="cleric" required="required">
-						  	<label>Rehuyo la violencia, trato de disculparme invocando la palabra de nuestro señor Irori.</label>
+						  	<label><em>"I'm a healer, but..." </em>No puedo tolerar la intolerancia. Agarro mi maza y les casco tortas hasta que se arrepientan de sus acciones.</label>
 						  	</li>				  
 						</ul>
 									
 				</fieldset>
-			<button type="submit" class="btn btn-primary">Siguiente</button>
+			<button type="submit" class="btn btn-primary">Finalizar</button>
 		</form>
 	</body>
 </html>

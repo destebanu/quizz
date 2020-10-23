@@ -1,0 +1,34 @@
+<!DOCTYPE  html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+	<head>
+  		<meta charset="UTF-8">
+  		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  		<title>Quizz</title>
+  		<style type="text/css">
+  			li {padding: 1em;}
+  			legend {background-color: white; border: 1px solid #0099ff;}
+  			legend::first-letter { font-size: 26px; font-weight: bold;}
+  			fieldset {border: 1.5px solid #0099ff; border-radius:25px; background-color:#fff2e6; margin: 1em;}
+  			figcaption {text-align:justify;}
+  		</style>
+  		
+	</head>
+	<body>
+		
+		<form th:action="@{/persistMessage}" method="post">
+			<fieldset>
+				<legend>Inicio:</legend>
+						<figure>
+							<img th:src="@{/pics/start.jpg}"/>
+							<figcaption class="text-primary">Bienvenido aventutero. Te estás adentrando en un mundo de magia no tan fantástico, pero es lo que has elegido. Escribe
+							tu nombre a continuación y veremos qué tipo de personaje se adecúa más a tus decisiones:
+							</figcaption>
+						</figure>
+						<br/>
+						<textarea name="name" rows="5" cols="50" placeholder="Escribe tu nombre"></textarea>
+									
+				</fieldset>
+			<button type="submit" class="btn btn-primary">Comenzar</button>
+		</form>
+	</body>
+</html>

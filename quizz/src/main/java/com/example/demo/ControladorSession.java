@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ControladorSession {
 
 	
-	@GetMapping("/session")
+	@GetMapping("/start")
 	public String process(Model model, HttpSession session) {
 		@SuppressWarnings("unchecked")
 		List<String> messages = (List<String>) session.getAttribute("MY_SESSION_MESSAGES");
@@ -26,26 +26,26 @@ public class ControladorSession {
 		}
 		model.addAttribute("sessionMessages", messages);
 
-		return "session";
+		return "start";
 	}
 
 	@PostMapping("/persistMessage")
-	public String persistMessage(@RequestParam("msg") String msg, HttpServletRequest request) {
+	public String persistMessage(@RequestParam("name") String name, HttpServletRequest request) {
 		@SuppressWarnings("unchecked")
 		List<String> messages = (List<String>) request.getSession().getAttribute("MY_SESSION_MESSAGES");
 		if (messages == null) {
 			messages = new ArrayList<>();
 			request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
 		}
-		messages.add(msg);
+		messages.add(name);
 		request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
-		return "redirect:/session";
+		return "redirect:/start";
 	}
 
 	@PostMapping("/destroy")
 	public String destroySession(HttpServletRequest request) {
 		request.getSession().invalidate();
-		return "redirect:/session";
+		return "redirect:/start";
 	}
 	
 }

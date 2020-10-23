@@ -20,25 +20,22 @@
 				<legend>Pregunta 6:</legend>
 						<figure>
 							<img th:src="@{/pics/taberna.jpg}"/>
-							<figcaption class="text-primary">Te encuentras en una taberna en la que has parado para descansar. En su interior encuentras gente de todo tipo
-							ahogando sus penas y festejando las de los demás. Tras unas jarras de cerveza de más te topas con un maleante dispuesto a partirte la cara
-							por derramar su bebida al pasar. Tus opciones:
+							<figcaption class="text-primary">Regresas de completar un trabajo bien hecho a informar a la persona que contrató tus servicios
+							Están tan contentos y agradecidios por tu éxito que te ofrecen las siguientes recompensas. Elige lo que tomarás:
 							</figcaption>
 						</figure>
+						
+						<!-- Si no elige nada/abnegación, +1 cleric, si elige hacha +1 barbarian -1 wizard, grimorio +1 wizard -1 barbarian, oro y vino +1 bard -1 cleric -->
 						<ul style="list-style-type:none">
-						  	<li><input type="radio" name="respuesta" value="barbarian" required="required">
-						  	<label>¡A mí nadie se me enfrenta, agarro una jarra y se la reviento en la cara!</label>
+						  	<li><input type="checkbox" name="arma" value="barbarian">
+						  	<label>Hacha de acero enano (del bueno)</label>
 						  	</li>						  	
-						  	<li><input type="radio" name="respuesta" value="wizard" required="required">
-						  	<label>Nadie puede hacer frente a mi arsenal de conjuros cuando me pongo serio, si se enciende se las verá con mi bola de fuego.</label>
+						  	<li><input type="checkbox" name="grimorio" value="wizard"">
+						  	<label>Grimorio de las sombras</label>
 						  	</li>						  	
-						  	<li><input type="radio" name="respuesta" value="bard" required="required">
-						  	<label>No pasa nada, le invito a una nueva bebida y nos subimos juntos sobre una mesa a cantar como buenos hermanos de la ebriedad.
-						  	¡Que corra el vino!</label>
-						  	</li>						  	
-						  	<li><input type="radio" name="respuesta" value="cleric" required="required">
-						  	<label>Rehuyo la violencia, trato de disculparme invocando la palabra de nuestro señor Irori.</label>
-						  	</li>				  
+						  	<li><input type="checkbox" name="riquezas" value="bard">
+						  	<label>Riquezas y vino</label>
+						  	</li>
 						</ul>
 									
 				</fieldset>
