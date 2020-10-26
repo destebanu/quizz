@@ -31,14 +31,14 @@ public class ControladorSession {
 	
 	
 	@PostMapping("/persistMessage")
-	public String start(@RequestParam("msg") String msg, HttpServletRequest request) {
+	public String start(@RequestParam("name") String name, HttpServletRequest request) {
 		@SuppressWarnings("unchecked")
 		List<String> messages = (List<String>) request.getSession().getAttribute("MY_SESSION_MESSAGES");
 		if (messages == null) {
 			messages = new ArrayList<>();
 			request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
 		}
-		messages.add(msg);
+		messages.add(name);
 		request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
 		return "redirect:/p1";
 	}
@@ -62,8 +62,8 @@ public class ControladorSession {
 		return "p1";
 	}
 	
-	/*
-	@PostMapping("/persistMessage")
+	
+	@PostMapping("/persistMessage1")
 	public String p1(@RequestParam("msg") String msg, HttpServletRequest request) {
 		@SuppressWarnings("unchecked")
 		List<String> messages = (List<String>) request.getSession().getAttribute("MY_SESSION_MESSAGES");
@@ -73,10 +73,10 @@ public class ControladorSession {
 		}
 		messages.add(msg);
 		request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
-		return "redirect:/p1";
+		return "redirect:/p2";
 	}
 		
-	*/
+	
 	
 	
 }
