@@ -21,11 +21,11 @@
 	</head>
 	<body>
 		
-		<form th:action="@{/persistMessage}" method="post">
+		<form th:action="@{/pm6}" method="post">
 			<fieldset>
 				<legend>Pregunta 6:</legend>
 						<figure>
-							<img th:src="@{/pics/taberna.jpg}"/>
+							<img th:src="@{/pics/thebox.jpg}"/>
 							<figcaption class="text-primary">Regresas de completar un trabajo bien hecho a informar a la persona que contrató tus servicios
 							Están tan contentos y agradecidios por tu éxito que te ofrecen las siguientes recompensas. Elige lo que tomarás:
 							</figcaption>
@@ -33,13 +33,13 @@
 						
 						<!-- Si no elige nada/abnegación, +1 cleric, si elige hacha +1 barbarian -1 wizard, grimorio +1 wizard -1 barbarian, oro y vino +1 bard -1 cleric -->
 						<ul style="list-style-type:none">
-						  	<li><input type="checkbox" name="arma" value="barbarian">
+						  	<li><input type="checkbox" name="respuesta1" value="barbarian">
 						  	<label>Hacha de acero enano (del bueno)</label>
 						  	</li>						  	
-						  	<li><input type="checkbox" name="grimorio" value="wizard"">
+						  	<li><input type="checkbox" name="respuesta2" value="wizard">
 						  	<label>Grimorio de las sombras</label>
 						  	</li>						  	
-						  	<li><input type="checkbox" name="riquezas" value="bard">
+						  	<li><input type="checkbox" name="respuesta3" value="bard">
 						  	<label>Riquezas y vino</label>
 						  	</li>
 						</ul>
