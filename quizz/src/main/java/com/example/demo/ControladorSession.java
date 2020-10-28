@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -87,7 +88,19 @@ public class ControladorSession {
 			
 			
 			@PostMapping("/pm4")
-			public String p4(@RequestParam("respuesta") String respuesta, HttpServletRequest request) {
+			public String p4(@RequestParam("respuesta") String texto, HttpServletRequest request) {
+				
+				StringTokenizer st = new StringTokenizer(texto);
+				String respuesta="";
+				int aux = st.countTokens();
+				
+				if (aux == 0)
+					respuesta = "barbarian";
+				else if (aux == 4)
+					respuesta = "bard";
+				else if (aux > 4)
+					respuesta = "cleric";
+				else respuesta = "wizard";
 				
 				request.getSession().setAttribute("r4", respuesta);
 				return "redirect:/p5";
@@ -117,18 +130,12 @@ public class ControladorSession {
 			
 			// COMO PONER REQUEST PARA 3 RESPUESTAS
 			@PostMapping("/pm6")
-			public String p6(@RequestParam("respuesta") String respuesta1, String respuesta2, String respuesta3, HttpServletRequest request) {
-				
-				String messages[] = new String[3];
-					
-				messages[0] = respuesta1;
-				messages[1] = respuesta2;
-				messages[2] = respuesta3;
+			public String p6(@RequestParam("respuesta") String[] respuestas, HttpServletRequest request) {
 				
 				String respuesta = "";
 				int aux = 0;
 				
-				for (String elemento: messages)
+				for (String elemento: respuestas)
 					if (elemento != null && !elemento.equals(""))
 						aux++;
 			
@@ -163,6 +170,40 @@ public class ControladorSession {
 			@GetMapping("/resultado")
 			public String resultado(Model model, HttpSession session) {
 				
+				// Recogemos el nombre del usuario
+				model.addAttribute("name", session.getAttribute("r0"));
+				
+								
+				//Calculamos la categoría en que cae el usuario
+				
+				String category="";
+				
+				int barbarian = 0, bard = 0, cleric = 0, wizard = 0;
+				
+				for (int x=1; x<8; x++) {
+					if (session.getAttribute("r"+x).equals("barbarian"))
+						barbarian++;
+					else if (session.getAttribute("r"+x).equals("wizard"))
+						wizard++;
+					else if (session.getAttribute("r"+x).equals("cleric"))
+						cleric++;
+					else bard++;					
+				}
+				
+				//Asignamos la categoría a la variable en base a las repeticiones de cada valor
+				
+				if (barbarian > cleric && barbarian > wizard && barbarian > bard)
+					category = "Bárbaro";
+				else if (wizard > cleric && wizard > barbarian && wizard > bard)
+					category = "Mago";
+				else if (bard > cleric && bard > barbarian && bard > wizard)
+					category = "Bardo";
+				else category = "Clérigo";
+				
+				//Math.max(Math.max(barbarian, wizard), Math.max(cleric, bard));
+				
+				model.addAttribute("category", category);
+								
 				return "resultado";
 			}
 			
