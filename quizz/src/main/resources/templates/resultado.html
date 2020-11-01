@@ -41,7 +41,17 @@
 				    <p th:case="'Bardo'">Viva la juerga, la Pepa y su prima. como buen bardo, haces amigos allá donde vas sin importar especies o razas,solo te importa 
 				    seguir el ritmo y darlo todo. Pues ole tú, di que sí y sigue así. ¡Y que corra el vino!</p>
 				    </td>
-				</tr>		  	  		  	  		
+				</tr>	
+			</table>
+			
+			<table class="table table-bordered">
+				<tr th:each="category: ${quizz_results}">
+						<td th:text="${category:.id}" />
+						<td th:text="${category:.name}" />
+						<td th:text="${category:.category}" />
+						<td><a class="btn btn-danger borrar"></a>
+							
+				</tr>	  	  		  	  		
 			</table>
 		
 		</div>

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -128,7 +129,7 @@ public class ControladorSession {
 			
 			// COMO PONER REQUEST PARA 3 RESPUESTAS
 			@PostMapping("/pm6")
-			public String p6(@RequestParam("respuesta") String[] respuestas, HttpServletRequest request) {
+			public String p6(@RequestParam("respuesta") ArrayList<String> respuestas, HttpServletRequest request) {
 				
 				String respuesta = "";
 				int aux = 0;
