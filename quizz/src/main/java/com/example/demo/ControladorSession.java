@@ -141,7 +141,7 @@ public class ControladorSession {
 				return "p6";
 			}
 			
-			// COMO PONER REQUEST PARA 3 RESPUESTAS
+			
 			@PostMapping("/pm6")
 			public String p6(HttpServletRequest request) {
 				
@@ -223,7 +223,7 @@ public class ControladorSession {
 				Category user = new Category(username,category);
 				
 				
-				// Error nullpointer exception
+				// Guardamos y mostramos la tabla de la BBDD
 				categorydao.save(user);
 				
 				List<Category> usersList = categorydao.show();
