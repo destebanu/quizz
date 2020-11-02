@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import Dao.CategoryJdbc;
+import modelo.Category;
 
 @Controller
 public class ControladorSession {
@@ -199,9 +203,20 @@ public class ControladorSession {
 					category = "Bardo";
 				else category = "Clérigo";
 				
-				//Math.max(Math.max(barbarian, wizard), Math.max(cleric, bard));
-				
 				model.addAttribute("category", category);
+				
+				// Almacenaje en BBDD (creación de POJO y jdbc)
+				
+				String username = (String) session.getAttribute("r0");
+				Category user = new Category(username,category);
+				
+				CategoryJdbc jdbc = new CategoryJdbc();
+				// Error nullpointer exception
+				jdbc.save(user);
+				
+				List<Category> usersList = jdbc.show();
+				model.addAttribute("usersList", usersList);
+				
 								
 				return "resultado";
 			}

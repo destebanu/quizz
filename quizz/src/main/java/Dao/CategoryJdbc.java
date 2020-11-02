@@ -22,7 +22,8 @@ public class CategoryJdbc implements CategoryDao {
 	
 	@Override
 	public List<Category> show() {
-		return jdbcTemplate.query("select * from quizz_results",(rs, rowNum) -> new Category(rs.getLong("id"), rs.getString("name"), rs.getString("category")));
+		return jdbcTemplate.query("select * from quizz_results",(rs, rowNum) -> new Category(rs.getLong("id"),
+				rs.getString("name"), rs.getString("category")));
 	}
 
 }

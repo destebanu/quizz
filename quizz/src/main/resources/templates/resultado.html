@@ -45,11 +45,11 @@
 			</table>
 			
 			<table class="table table-bordered">
-				<tr th:each="category: ${quizz_results}">
-						<td th:text="${category:.id}" />
-						<td th:text="${category:.name}" />
-						<td th:text="${category:.category}" />
-						<td><a class="btn btn-danger borrar"></a>
+				<tr th:each="usuario: ${usersList}">
+						<td th:text="${usuario:.id}" />
+						<td th:text="${usuario:.name}" />
+						<td th:text="${usuario:.category}" />
+						
 							
 				</tr>	  	  		  	  		
 			</table>
