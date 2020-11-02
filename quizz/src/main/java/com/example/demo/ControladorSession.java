@@ -1,23 +1,38 @@
 package com.example.demo;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Dao.CategoryDao;
 import Dao.CategoryJdbc;
 import modelo.Category;
 
+@ComponentScan("com.example.demo")
+
 @Controller
 public class ControladorSession {
+	
+	@Bean
+	public CategoryDao categoryDao() {
+	    return new  CategoryJdbc();
+	}
+	
+	@Autowired
+	private CategoryDao categorydao;
 
 	
 	@GetMapping("/start")
@@ -210,11 +225,11 @@ public class ControladorSession {
 				String username = (String) session.getAttribute("r0");
 				Category user = new Category(username,category);
 				
-				CategoryJdbc jdbc = new CategoryJdbc();
-				// Error nullpointer exception
-				jdbc.save(user);
 				
-				List<Category> usersList = jdbc.show();
+				// Error nullpointer exception
+				categorydao.save(user);
+				
+				List<Category> usersList = categorydao.show();
 				model.addAttribute("usersList", usersList);
 				
 								

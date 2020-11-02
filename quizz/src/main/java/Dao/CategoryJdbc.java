@@ -16,14 +16,14 @@ public class CategoryJdbc implements CategoryDao {
 	
 	@Override
 	public int save(Category category) {
-		return jdbcTemplate.update("insert into quizz_results (name, category) values(?,?))",
+		return jdbcTemplate.update("insert into quizz_results (name_quizz_results, category_quizz_results) values(?,?)",
 				category.getName(), category.getCategory());
 	}
 	
 	@Override
 	public List<Category> show() {
-		return jdbcTemplate.query("select * from quizz_results",(rs, rowNum) -> new Category(rs.getLong("id"),
-				rs.getString("name"), rs.getString("category")));
+		return jdbcTemplate.query("select * from quizz_results",(rs, rowNum) -> new Category(rs.getLong("id_quizz_results"),
+				rs.getString("name_quizz_results"), rs.getString("category_quizz_results")));
 	}
 
 }

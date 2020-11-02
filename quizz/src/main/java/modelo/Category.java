@@ -1,9 +1,17 @@
 package modelo;
 
+import org.springframework.context.annotation.Bean;
+
+import Dao.CategoryDao;
+import Dao.CategoryJdbc;
+
+
 public class Category {
 	private long id;
 	private String name;
 	private String category;
+	
+	
 	
 		
 	public Category() {
@@ -40,6 +48,11 @@ public class Category {
 	}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", category=" + category + "]";
 	}
 	
 	
