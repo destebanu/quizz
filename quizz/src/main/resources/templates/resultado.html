@@ -44,6 +44,8 @@
 				</tr>	
 			</table>
 			
+			<h1 class="text-center">Historial</h1>
+			
 			<table class="table table-bordered">
 				<tr th:each="usuario: ${usersList}">
 						<td th:text="${usuario.id}" />
@@ -55,6 +57,13 @@
 			</table>
 		
 		</div>
+		
+		<form th:action="@{/restart}" method="post">
+			<button type="submit" class="btn btn-primary">Empezar otra vez</button>
+		</form>
+		<form th:action="@{/destroy}" method="post">
+			<button type="submit" class="btn btn-dark">Borrar session y tabla</button>
+		</form>
 		
 			
 	</body>

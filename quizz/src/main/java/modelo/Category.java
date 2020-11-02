@@ -1,10 +1,5 @@
 package modelo;
 
-import org.springframework.context.annotation.Bean;
-
-import Dao.CategoryDao;
-import Dao.CategoryJdbc;
-
 
 public class Category {
 	private long id;

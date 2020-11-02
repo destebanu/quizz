@@ -22,8 +22,14 @@ public class CategoryJdbc implements CategoryDao {
 	
 	@Override
 	public List<Category> show() {
-		return jdbcTemplate.query("select * from quizz_results",(rs, rowNum) -> new Category(rs.getLong("id_quizz_results"),
+		return jdbcTemplate.query("select * from quizz_results order by id_quizz_results desc limit 5",(rs, rowNum) -> new Category(rs.getLong("id_quizz_results"),
 				rs.getString("name_quizz_results"), rs.getString("category_quizz_results")));
 	}
+	
+	@Override
+	public int deleteAll() {
+		return jdbcTemplate.update("delete from quizz_results");
+	}
+
 
 }

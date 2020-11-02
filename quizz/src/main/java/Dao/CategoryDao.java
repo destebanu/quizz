@@ -10,5 +10,7 @@ public interface CategoryDao {
 	int save (Category category);
 	
 	List<Category> show();
+	
+	int deleteAll();
 
 }

@@ -49,11 +49,6 @@ public class ControladorSession {
 		return "redirect:/p1";
 	}
 
-	@PostMapping("/destroy")
-	public String destroySession(HttpServletRequest request) {
-		request.getSession().invalidate();
-		return "redirect:/start";
-	}
 	
 	@GetMapping("/p1")
 	public String p1(Model model, HttpSession session) {
@@ -148,7 +143,9 @@ public class ControladorSession {
 			
 			// COMO PONER REQUEST PARA 3 RESPUESTAS
 			@PostMapping("/pm6")
-			public String p6(@RequestParam("respuesta") ArrayList<String> respuestas, HttpServletRequest request) {
+			public String p6(HttpServletRequest request) {
+				
+				String[] respuestas = request.getParameterValues("respuesta");
 				
 				String respuesta = "";
 				int aux = 0;
@@ -235,7 +232,21 @@ public class ControladorSession {
 								
 				return "resultado";
 			}
+				
+			@PostMapping("/restart")
+			public String restart() {
+				
+				return "redirect:/start";
+			}
 			
+
+			@PostMapping("/destroy")
+			public String destroySession(HttpServletRequest request) {
+				request.getSession().invalidate();
+				categorydao.deleteAll();
+				
+				return "redirect:/start";
+			}
 		
 	
 	
